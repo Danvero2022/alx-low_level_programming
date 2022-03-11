@@ -1,3 +1,2 @@
 #!/bin/bash
 gcc -E $CFILE -o cisfun
-[3~[3~[A[[3~[3~
