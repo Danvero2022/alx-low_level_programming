@@ -1,2 +1,19 @@
 #!/bin/bash
-gcc $CFILE -o cisfun
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[Agcc -E $CFILE -o cisfun
