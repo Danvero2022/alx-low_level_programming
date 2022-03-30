@@ -19,6 +19,3 @@ int _pow_recursion(int x, int y)
 	else
 		return (1);
 }
-© 2022 GitHub, Inc.
-Terms
-[A[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[A[B[B[B[3~[3~[3~[3~
