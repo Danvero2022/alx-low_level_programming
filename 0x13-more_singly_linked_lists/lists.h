@@ -38,6 +38,3 @@ listint_t *reverse_listint(listint_t **head);
 int _putchar(char c);
 
 #endif
-© 2022 GitHub, Inc.
-Terms
-[A[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[C[C[C[C
