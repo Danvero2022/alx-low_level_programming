@@ -1,50 +1,36 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * read_textfile  - reads a text file and prints
- * @filename:  pointing to a string of 0 and 1 chars
- * @letters : the number of letters it should read and print
- * Return: actual number of letters it could read and print
+ * read_textfile - reads a text file and prints the letters
+ * @filename: filename.
+ * @letters: numbers of letters printed.
+ *
+ * Return: numbers of letters printed. It fails, returns 0.
  */
-
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd, count = 0, read_file;
-	char *buffer;
+	int fd;
+	ssize_t nrd, nwr;
+	char *buf;
 
-	/*Check content file*/
-	if (filename == NULL)
+	if (!filename)
 		return (0);
-	buffer = malloc(letters * sizeof(char));
-	/*Check value of buffer*/
-	if (buffer == NULL)
-		return (0);
-	/*Open file*/
+
 	fd = open(filename, O_RDONLY);
-	if (fd == -1) /*If it fails*/
-	{
-		free(buffer); /*free memory*/
+
+	if (fd == -1)
 		return (0);
-	}
-	/*Read file*/
-	read_file = read(fd, buffer, letters);
-	if (read_file == -1) /*If it fails*/
-	{
-		close(fd); /*Close file*/
-		free(buffer);
+
+	buf = malloc(sizeof(char) * (letters));
+	if (!buf)
 		return (0);
-	}
-	while (count < read_file)
-	{
-		if (write(STDOUT_FILENO, &buffer[count], 1) == -1)
-		{
-			close(fd);
-			free(buffer);
-			return (0);
-		}
-		count++;
-	}
-	close(fd); /*Close file*/
-	free(buffer); /*Free memory*/
-	return (read_file);
+
+	nrd = read(fd, buf, letters);
+	nwr = write(STDOUT_FILENO, buf, nrd);
+
+	close(fd);
+
+	free(buf);
+
+	return (nwr);
 }
